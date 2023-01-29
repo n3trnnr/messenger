@@ -1,0 +1,34 @@
+div.chat-wrapper {
+    width: 75%;
+    height: 100%;
+    border-left: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+div.input-menu {
+    display: flex;
+    margin-top: auto;
+    align-items: center;
+    border-top: 1px solid black;
+}
+
+textarea.input-field {
+    bottom: 0;
+    width: 90%;
+    height: 25px;
+    resize: none;
+    border: none;
+}
+
+button.send-btn {
+    width: 10%;
+    height: 30px;
+    border: none;
+    background: red;
+    color: white
+}
+
+button.send-btn:hover {
+    background: rgba(255, 0, 0, 0.6);
+}
