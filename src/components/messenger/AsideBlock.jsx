@@ -1,7 +1,7 @@
 import React from 'react';
-import '../style/asideBlock.css'
+import '../../style/asideBlock.css'
 import UsersList from './UsersList';
-import avatar from '../assets/avatar.png'
+import avatar from '../../assets/avatar.png'
 
 const AsideBlock = ({ usersData }) => {
     console.log('userData: ', usersData);

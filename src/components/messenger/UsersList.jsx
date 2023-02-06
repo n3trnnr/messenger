@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/usersList.css'
+import '../../style/usersList.css'
 
 const UsersList = ({ img, name, numOfMessages }) => {
     return (
