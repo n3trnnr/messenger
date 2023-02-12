@@ -2,46 +2,47 @@ import React, { useEffect } from 'react';
 import '../style/messanger.css'
 import ChatBlock from '../components/messenger/ChatBlock';
 import AsideBlock from '../components/messenger/AsideBlock';
-import { useDispatch, useSelector } from 'react-redux';
-import { setUsers, addUser } from '../store/messanger';
+import { useDispatch } from 'react-redux';
+import { setUsers, addUser, setDialogues } from '../store/messanger';
 import avatar from '../assets/avatar.png'
+import usersData from '../mocks/usersData.json'
+import dialoguesData from '../mocks/dialogues.json'
 
 const Messanger = () => {
 
-    const arrOfUsers = [
-        {
-            id: 'id1',
-            img: avatar,
-            name: 'user name',
-            numOfMessages: 1
-        },
-        {
-            id: 'id2',
-            img: avatar,
-            name: 'user name1',
-            numOfMessages: 5
-        },
-        {
-            id: 'id3',
-            img: avatar,
-            name: 'user name2',
-            numOfMessages: 3
-        },
-    ]
-
-    const usersList = useSelector((state) => state.messenger.usersList)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(setUsers(arrOfUsers))
+        fetchData()
     }, [])
+
+    const fetchData = () => {
+
+        dispatch(setUsers(usersData.users))
+        dispatch(setDialogues(dialoguesData.dialogues))
+
+        const promise = new Promise((resolve, reject) => {
+            // console.log('promise')
+            setTimeout(() => {
+                // console.log('setTimeout')
+                // return resolve('succsess')
+                return reject('error text')
+            }, 2000)
+        })
+
+        promise.then((result) => {
+            // console.log(result)
+        }).catch((error) => {
+            // console.log(error)
+        })
+    }
 
     const addNewUser = () => {
         const newUser = {
-            id: `id ${usersList.length}`,
+            id: `id ${usersData.users.length}`,
             img: avatar,
             name: 'new user',
-            numOfMessages: 3
+            incomingMessages: 3
         }
         dispatch(addUser(newUser))
     }
@@ -49,14 +50,11 @@ const Messanger = () => {
     return (
         <>
             <main>
-                <AsideBlock usersData={usersList} />
+                <AsideBlock />
                 <ChatBlock />
-
             </main>
-            <div onClick={() => addNewUser()}>add user</div>
+            <div onClick={() => addNewUser()}>ADD USER</div>
         </>
-
-
     );
 }
 

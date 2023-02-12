@@ -1,0 +1,22 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "name": "Asta",
+            "avatar": "",
+            "incomingMessages": 0
+        },
+        {
+            "id": "2",
+            "name": "John",
+            "avatar": "",
+            "incomingMessages": 1
+        },
+        {
+            "id": "3",
+            "name": "Maria",
+            "avatar": "",
+            "incomingMessages": 5
+        }
+    ]
+}

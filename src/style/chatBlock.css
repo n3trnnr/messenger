@@ -1,49 +1,40 @@
 div.chat-wrapper {
     width: 75%;
     height: 100%;
-    border-left: 1px solid black;
     display: flex;
     flex-direction: column;
+    background: rgb(150, 150, 150);
+    position: relative;
 }
 
-div.input-menu {
+section.messages-list {
+    height: calc(100% - 70px);
     display: flex;
-    margin-top: auto;
-    align-items: center;
-    border-top: 1px solid black;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow-y: auto;
 }
 
-textarea.input-field {
-    bottom: 0;
-    width: 90%;
-    height: 25px;
-    resize: none;
-    border: none;
-}
-
-button.send-btn {
-    width: 10%;
-    height: 30px;
-    border: none;
-    background: red;
-    color: white
-}
-
-button.send-btn:hover {
-    background: rgba(255, 0, 0, 0.6);
-}
-
-/* div.messages-list {} */
-
-div.message-wrapper {
+div.message-wrapper-outgoing {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    margin-top: 15px;
+    width: 200px;
     height: 40px;
-    background: rgba(128, 128, 128, 0.336);
+    background: rgba(255, 255, 255, 0.637);
     border-radius: 10px;
+    margin: 15px 10px 0 auto;
+}
+
+div.message-wrapper-incoming {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.637);
+    border-radius: 10px;
+    margin: 15px 0 0 10px;
 }
 
 div.message-time {

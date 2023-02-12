@@ -1,0 +1,82 @@
+{
+    "dialogues": [
+        {
+            "userId": "1",
+            "dialogueId": "1",
+            "messages": [
+                {
+                    "text": "Hello!",
+                    "time": "22-22",
+                    "isOutgoing": true
+                },
+                {
+                    "text": "How is it going?",
+                    "time": "22-22",
+                    "isOutgoing": true
+                },
+                {
+                    "text": "Oh, Hi!",
+                    "time": "22-22",
+                    "isOutgoing": false
+                },
+                {
+                    "text": "I'm good and you?",
+                    "time": "22-22",
+                    "isOutgoing": false
+                },
+                {
+                    "text": "Me too!",
+                    "time": "22-22",
+                    "isOutgoing": true
+                }
+            ]
+        },
+        {
+            "userId": "2",
+            "dialogueId": "2",
+            "messages": [
+                {
+                    "text": "Are you free tonight?",
+                    "time": "12-33",
+                    "isOutgoing": true
+                },
+                {
+                    "text": "Sorry i'm busy",
+                    "time": "12-33",
+                    "isOutgoing": false
+                },
+                {
+                    "text": "It's ok",
+                    "time": "12-33",
+                    "isOutgoing": true
+                },
+                {
+                    "text": "Text me when you are free",
+                    "time": "12-33",
+                    "isOutgoing": false
+                }
+            ]
+        },
+        {
+            "userId": "3",
+            "dialogueId": "3",
+            "messages": [
+                {
+                    "text": "Are you here?",
+                    "time": "10-15",
+                    "isOutgoing": false
+                },
+                {
+                    "text": "Hey?",
+                    "time": "10-15",
+                    "isOutgoing": false
+                },
+                {
+                    "text": "No i'm not here",
+                    "time": "10-15",
+                    "isOutgoing": true
+                }
+            ]
+        }
+    ]
+}
