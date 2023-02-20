@@ -1,19 +1,14 @@
-header {
+div.user-wrapper {
     width: auto;
     height: 80px;
     display: flex;
     align-items: center;
     position: relative;
-    border-bottom: 1px solid black;
+    cursor: pointer;
 }
 
-div.usersList-wrapper {
-    width: auto;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    border-bottom: 1px solid black;
+div.user-wrapper:hover {
+    background: rgba(225, 225, 225, 0.5);
 }
 
 img.user-avatar {
@@ -36,4 +31,9 @@ div.num-of-messages {
     border-radius: 50px;
     background: greenyellow;
     text-align: center;
+}
+
+div.incoming-message-wrapper {
+    display: flex;
+    flex-direction: column;
 }

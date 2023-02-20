@@ -1,0 +1,28 @@
+footer.input-form {
+    display: flex;
+    margin-top: auto;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+textarea.input-field {
+    bottom: 0;
+    width: 90%;
+    height: 25px;
+    resize: none;
+    border: none;
+}
+
+button.send-btn {
+    width: 10%;
+    height: 30px;
+    border: none;
+    background: red;
+    color: white
+}
+
+button.send-btn:hover {
+    background: rgba(255, 0, 0, 0.6);
+}
