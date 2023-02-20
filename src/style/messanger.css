@@ -4,3 +4,19 @@ main {
     height: 100vh;
     border: 1px solid black;
 }
+
+aside.aside-wrapper {
+    width: 25%;
+    height: 100%;
+    overflow-y: auto;
+    background: rgb(180, 180, 180);
+}
+
+div.chat-wrapper {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(150, 150, 150);
+    position: relative;
+}

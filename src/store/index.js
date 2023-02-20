@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import messenger from "./messanger";
+import messenger from "./messenger";
 
 const store = configureStore({
     reducer: {

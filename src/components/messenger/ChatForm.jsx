@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import '../../style/chatForm.css'
-import { sendMessage as sendMessageAction } from "../../store/messanger";
+import { sendMessage as sendMessageAction } from "../../store/messenger";
 
 const ChatForm = () => {
 

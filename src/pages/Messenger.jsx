@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-import '../style/messanger.css'
 import ChatBlock from '../components/messenger/ChatBlock';
 import AsideBlock from '../components/messenger/AsideBlock';
 import { useDispatch } from 'react-redux';
-import { setUsers, addUser, setDialogues } from '../store/messanger';
+import { setUsers, addUser, setDialogues } from '../store/messenger';
 import avatar from '../assets/avatar.png'
 import usersData from '../mocks/usersData.json'
 import dialoguesData from '../mocks/dialogues.json'
@@ -14,6 +13,7 @@ const Messanger = () => {
 
     useEffect(() => {
         fetchData()
+        // getData()
     }, [])
 
     const fetchData = () => {
@@ -21,20 +21,31 @@ const Messanger = () => {
         dispatch(setUsers(usersData.users))
         dispatch(setDialogues(dialoguesData.dialogues))
 
-        const promise = new Promise((resolve, reject) => {
-            // console.log('promise')
-            setTimeout(() => {
-                // console.log('setTimeout')
-                // return resolve('succsess')
-                return reject('error text')
-            }, 2000)
-        })
+        // const promise = new Promise((resolve, reject) => {
+        //     // console.log('promise')
+        //     setTimeout(() => {
+        //         // console.log('setTimeout')
+        //         // return resolve('succsess')
+        //         return reject('error text')
+        //     }, 2000)
+        // })
+        // promise.then((result) => {
+        //     // console.log(result)
+        // }).catch((error) => {
+        //     // console.log(error)
+        // })
+    }
 
-        promise.then((result) => {
-            // console.log(result)
-        }).catch((error) => {
-            // console.log(error)
-        })
+    const getData = async () => {
+        try {
+            const resolve = await fetch('https://mysafeinfo.com/api/data?list=englishmonarchs&format=json')
+            const data = resolve.json()
+            // console.log(data);
+            // throw 'new error'
+        }
+        catch (e) {
+            console.log(e);
+        }
     }
 
     const addNewUser = () => {
@@ -49,11 +60,11 @@ const Messanger = () => {
 
     return (
         <>
-            <main>
+            <>
                 <AsideBlock />
                 <ChatBlock />
-            </main>
-            <div onClick={() => addNewUser()}>ADD USER</div>
+            </>
+            {/* <div onClick={() => addNewUser()}>ADD USER</div> */}
         </>
     );
 }

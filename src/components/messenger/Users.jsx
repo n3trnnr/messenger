@@ -2,7 +2,7 @@ import React from 'react';
 import '../../style/users.css'
 import noAvatar from '../../assets/avatar.png'
 import { useDispatch } from 'react-redux';
-import { setDialogueByUserId } from '../../store/messanger';
+import { setDialogueByUserId } from '../../store/messenger';
 
 const UsersList = ({ id, name, avatar, numOfMessages, text, time, isOutgoing }) => {
 

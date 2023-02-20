@@ -1,12 +1,3 @@
-div.chat-wrapper {
-    width: 75%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    background: rgb(150, 150, 150);
-    position: relative;
-}
-
 section.messages-list {
     height: calc(100% - 70px);
     display: flex;

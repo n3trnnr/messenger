@@ -1,11 +1,5 @@
-div.aside-wrapper {
-    width: 25%;
-    height: 100%;
-    overflow-y: auto;
-    background: rgb(180, 180, 180);
-}
-
 header.aside-header {
+    position: relative;
     width: auto;
     height: 80px;
     display: flex;
@@ -17,4 +11,17 @@ header.aside-header {
 
 section.users-list {
     background: rgb(180, 180, 180);
+}
+
+img.settings-icon {
+    display: none;
+}
+
+header:hover img.settings-icon {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }

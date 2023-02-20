@@ -1,8 +1,10 @@
 import React from 'react';
 import '../../style/asideBlock.css'
-import Users from './Users';
-import UserPage from './UserPage';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Users from './Users';
+import Header from '../Header';
+import settingsIcon from '../../assets/settings-icon.png'
 
 const AsideBlock = () => {
 
@@ -21,10 +23,13 @@ const AsideBlock = () => {
     }
 
     return (
-        <div className='aside-wrapper'>
-            <header className='aside-header'>
-                <UserPage />
-            </header>
+        <aside className='aside-wrapper'>
+            <Header className='aside-header'>
+                {/* <Header /> */}
+                <Link to='/settings'>
+                    <img src={settingsIcon} alt="settings-icon" className="settings-icon" />
+                </Link>
+            </Header>
 
             <section className='users-list'>
                 {usersData.map((user, id) => {
@@ -43,7 +48,7 @@ const AsideBlock = () => {
                         />)
                 })}
             </section>
-        </div>
+        </aside>
     );
 }
 
