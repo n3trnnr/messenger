@@ -25,7 +25,6 @@ const AsideBlock = () => {
     return (
         <aside className='aside-wrapper'>
             <Header className='aside-header'>
-                {/* <Header /> */}
                 <Link to='/settings'>
                     <img src={settingsIcon} alt="settings-icon" className="settings-icon" />
                 </Link>

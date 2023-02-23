@@ -38,3 +38,12 @@ div.settings-content-wrapper {
     background: rgb(150, 150, 150);
     position: relative;
 }
+
+div.setting-item {
+    margin: 10px 0 0 15px;
+    text-transform: uppercase;
+}
+
+div.user-settings-items {
+    display: flex;
+}

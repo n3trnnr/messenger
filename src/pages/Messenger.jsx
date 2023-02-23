@@ -17,23 +17,8 @@ const Messanger = () => {
     }, [])
 
     const fetchData = () => {
-
         dispatch(setUsers(usersData.users))
         dispatch(setDialogues(dialoguesData.dialogues))
-
-        // const promise = new Promise((resolve, reject) => {
-        //     // console.log('promise')
-        //     setTimeout(() => {
-        //         // console.log('setTimeout')
-        //         // return resolve('succsess')
-        //         return reject('error text')
-        //     }, 2000)
-        // })
-        // promise.then((result) => {
-        //     // console.log(result)
-        // }).catch((error) => {
-        //     // console.log(error)
-        // })
     }
 
     const getData = async () => {
