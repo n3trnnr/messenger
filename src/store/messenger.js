@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     usersList: [],
     dialogues: [],
-    dialogue: {}
+    currentDialog: {},
+    selectedUserId: -1
 }
 
 const messenger = createSlice({
@@ -25,18 +26,18 @@ const messenger = createSlice({
             if (userId > 0) {
                 for (let i of state.dialogues) {
                     if (i.userId === userId) {
-                        state.dialogue = i
+                        state.currentDialog = i
                     }
                 }
             } else {
-                state.dialogue = {}
+                state.currentDialog = {}
             }
         },
 
         sendMessage: (state, { payload: text }) => {
-            if (Object.keys(state.dialogue).length && text) {
+            if (Object.keys(state.currentDialog).length && text) {
                 for (let i = 0; i < state.dialogues.length; i++) {
-                    if (state.dialogues[i].dialogueId === state.dialogue.dialogueId) {
+                    if (state.dialogues[i].dialogueId === state.currentDialog.dialogueId) {
                         const date = new Date()
                         state.dialogues[i].messages.push({
                             "text": text,
@@ -44,7 +45,7 @@ const messenger = createSlice({
                             "isOutgoing": true
                         })
 
-                        state.dialogue.messages.push({
+                        state.currentDialog.messages.push({
                             "text": text,
                             "time": `${date.getHours()}:${date.getMinutes()}`,
                             "isOutgoing": true
@@ -52,10 +53,14 @@ const messenger = createSlice({
                     }
                 }
             }
+        },
+
+        setSelectedUserId: (state, { payload: id }) => {
+            state.selectedUserId = id
         }
     }
 })
 
-export const { setUsers, addUser, setDialogues, setDialogueByUserId, sendMessage } = messenger.actions
+export const { setUsers, addUser, setDialogues, setDialogueByUserId, sendMessage, setSelectedUserId } = messenger.actions
 
 export default messenger.reducer

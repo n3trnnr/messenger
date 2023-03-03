@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react';
 import ChatBlock from '../components/messenger/ChatBlock';
 import AsideBlock from '../components/messenger/AsideBlock';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setUsers, addUser, setDialogues } from '../store/messenger';
+import { useState, useEffect } from 'react';
 import avatar from '../assets/avatar.png'
 import usersData from '../mocks/usersData.json'
 import dialoguesData from '../mocks/dialogues.json'
+import Slider from '../components/messenger/Slider'
 
 const Messanger = () => {
 
@@ -43,11 +44,50 @@ const Messanger = () => {
         dispatch(addUser(newUser))
     }
 
+    const usersList = useSelector(({ messenger }) => messenger.usersList)
+    const selectedUserId = useSelector(({ messenger }) => messenger.selectedUserId)
+    const [sliderState, setSliderState] = useState(true)
+    const [userData, setUserData] = useState(null)
+    // console.log('sliderState: ', sliderState, 'seceltedUserId: ', selectedUserId, 'userData: ', userData);
+
+    useEffect(() => {
+        if (~selectedUserId) {
+            setUserData(getUserDataById())
+            setSliderState(false)
+        } else {
+            setSliderState(true)
+            setUserData(null)
+        }
+    }, [selectedUserId])
+
+    const getUserDataById = () => {
+        // if (usersList && ~selectedUserId) {
+        for (let user of usersList) {
+            if (user.id === selectedUserId) {
+                return user
+            }
+        }
+        // }
+        return false
+    }
+
     return (
         <>
             <>
                 <AsideBlock />
                 <ChatBlock />
+                <Slider
+                    isHidden={sliderState}
+                    setHidden={setSliderState}
+                >
+                    {userData && <div>
+                        {Object.keys(userData).map((userKey, id) => (
+                            <div key={`userData_${id}`}>
+                                {userKey}: {userData[userKey]}
+                            </div>
+                        ))}
+                    </div>}
+                </Slider>
             </>
             {/* <div onClick={() => addNewUser()}>ADD USER</div> */}
         </>

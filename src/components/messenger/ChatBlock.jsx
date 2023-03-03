@@ -7,7 +7,7 @@ import Message from './Message';
 
 const ChatBlock = () => {
 
-    const messagesData = useSelector(({ messenger }) => messenger.dialogue)
+    const messagesData = useSelector(({ messenger }) => messenger.currentDialog)
     // console.log('messagesData.messages: ', messagesData.messages)
 
     const usersData = useSelector(({ messenger }) => messenger.usersList)
