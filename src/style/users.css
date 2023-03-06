@@ -11,6 +11,13 @@ div.user-wrapper:hover {
     background: rgba(225, 225, 225, 0.5);
 }
 
+div.aside-user-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 img.user-avatar {
     width: 60px;
     height: 60px;

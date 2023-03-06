@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Users from './Users';
 import Header from '../Header';
 import settingsIcon from '../../assets/settings-icon.png'
+import Polylogue from './Polylogue';
 
 const AsideBlock = () => {
 
@@ -20,6 +21,14 @@ const AsideBlock = () => {
             }
         }
         return []
+    }
+
+    const polylogues = () => {
+        const polylogue = dialoguesData.filter(({ usersId }) => usersId)
+        // const polylogue = dialoguesData.filter((usersId) => usersId)
+        // console.log(polylogue);
+
+        return polylogue
     }
 
     return (
@@ -46,6 +55,15 @@ const AsideBlock = () => {
                             isOutgoing={lastMessage[0].isOutgoing || ''}
                         />)
                 })}
+
+                {polylogues().map((polylogue, id) => (
+                    <Polylogue
+                        key={`polylogue_${id}`}
+                        id={polylogue.dialogueId}
+                        name={polylogue.name}
+                        logo={polylogue.logo}
+                    />
+                ))}
             </section>
         </aside>
     );

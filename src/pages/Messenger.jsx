@@ -7,6 +7,7 @@ import avatar from '../assets/avatar.png'
 import usersData from '../mocks/usersData.json'
 import dialoguesData from '../mocks/dialogues.json'
 import Slider from '../components/messenger/Slider'
+import '../style/asideUsersData.css'
 
 const Messanger = () => {
 
@@ -66,8 +67,8 @@ const Messanger = () => {
             if (user.id === selectedUserId) {
                 return user
             }
+            // }
         }
-        // }
         return false
     }
 
@@ -80,12 +81,17 @@ const Messanger = () => {
                     isHidden={sliderState}
                     setHidden={setSliderState}
                 >
-                    {userData && <div>
-                        {Object.keys(userData).map((userKey, id) => (
+                    {userData && <div className='aside-user-wrapper'>
+                        {/* {Object.keys(userData).map((userKey, id) => (
                             <div key={`userData_${id}`}>
                                 {userKey}: {userData[userKey]}
                             </div>
-                        ))}
+                        ))} */}
+
+                        <div className='aside-user-name'>{userData.name}</div>
+                        <img className='aside-user-avatar' src={userData.avatar} alt="avatar" />
+                        <div className='aside-user-phone-number'>{userData.phoneNumber}</div>
+                        <div className='aside-user-bio'>{userData.bio}</div>
                     </div>}
                 </Slider>
             </>

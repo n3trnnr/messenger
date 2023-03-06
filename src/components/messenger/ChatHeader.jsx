@@ -4,19 +4,29 @@ import noAvatar from '../../assets/avatar.png'
 import { useDispatch } from "react-redux";
 import { setDialogueByUserId, setSelectedUserId } from "../../store/messenger";
 
-const ChatHeader = ({ userData }) => {
+const ChatHeader = ({ usersData }) => {
+
+    // console.log(usersData);
 
     const dispatch = useDispatch()
 
-    const closeDialogue = () => {
-        dispatch(setDialogueByUserId(-1))
-    }
+    // const setPolylogueHeader = () => {
+    //     if (usersData && usersData.usersId) {
+    //         let id = ''
+    //         for (let i = 0; i < usersData.usersId.length; i++) {
+    //             return `${usersData.usersId[0]}`
+    //         }
+
+    //     }
+    // }
+
+    // console.log(setPolylogueHeader());
 
     return (
-        userData && <header className='header-dialog'>
-            <div className="back-btn" onClick={() => closeDialogue()}>{'<'}</div>
-            <div onClick={() => dispatch(setSelectedUserId(userData.id))}>{userData.name}</div>
-            <img className="header-avatar" src={userData.avatar || noAvatar} alt="avatar" />
+        usersData && <header className='header-dialog'>
+            <div className="back-btn" onClick={() => dispatch(setDialogueByUserId(-1))}>{'<'}</div>
+            <div onClick={() => dispatch(setSelectedUserId(usersData.id || `${usersData.usersId[0]}`))}>{usersData.name}</div>
+            <img className="header-avatar" src={usersData.avatar || usersData.logo || noAvatar} alt="avatar" />
         </header>
     )
 }

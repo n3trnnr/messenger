@@ -25,7 +25,7 @@ const messenger = createSlice({
         setDialogueByUserId: (state, { payload: userId }) => {
             if (userId > 0) {
                 for (let i of state.dialogues) {
-                    if (i.userId === userId) {
+                    if (i.dialogueId === userId || i.userId === userId) {
                         state.currentDialog = i
                     }
                 }
