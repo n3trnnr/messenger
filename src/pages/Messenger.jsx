@@ -62,15 +62,15 @@ const Messanger = () => {
     }, [selectedUserId])
 
     const getUserDataById = () => {
-        // if (usersList && ~selectedUserId) {
         for (let user of usersList) {
             if (user.id === selectedUserId) {
                 return user
             }
-            // }
         }
         return false
     }
+
+    // console.log('selectedUserId', selectedUserId);
 
     return (
         <>
@@ -82,12 +82,6 @@ const Messanger = () => {
                     setHidden={setSliderState}
                 >
                     {userData && <div className='aside-user-wrapper'>
-                        {/* {Object.keys(userData).map((userKey, id) => (
-                            <div key={`userData_${id}`}>
-                                {userKey}: {userData[userKey]}
-                            </div>
-                        ))} */}
-
                         <div className='aside-user-name'>{userData.name}</div>
                         <img className='aside-user-avatar' src={userData.avatar} alt="avatar" />
                         <div className='aside-user-phone-number'>{userData.phoneNumber}</div>

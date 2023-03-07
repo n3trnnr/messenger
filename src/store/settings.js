@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     userData: {
         name: 'Julius',
-        avatar: '',
+        avatar: 'https://w7.pngwing.com/pngs/980/304/png-transparent-computer-icons-user-profile-avatar-heroes-silhouette-avatar.png',
         mail: 'julius@gmail.com',
         birthday: '29.05.1992'
     },

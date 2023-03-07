@@ -31,15 +31,15 @@ const ChatBlock = () => {
 
     const getDataAboutPolylogueUsers = () => {
         if (messagesData && messagesData.usersId) {
-            const usersDataArr = []
+            const polylogueUserData = []
             for (let user of usersData) {
                 for (let i of messagesData.usersId) {
                     if (`${i}` === user.id) {
-                        usersDataArr.push(user)
+                        polylogueUserData.push(user)
                     }
                 }
             }
-            return usersDataArr
+            return polylogueUserData
         }
         return false
     }
@@ -57,7 +57,7 @@ const ChatBlock = () => {
                             key={`message_${id}`}
                             text={message.text}
                             time={message.time}
-                            isOutgoing={message.isOutgoing}
+                            isOutgoing={message.isOutgoing || message.userId}
                             usersData={getDataAboutPolylogueUsers() || setDialogueHeader()}
                             userData={userData}
                         />

@@ -2,7 +2,7 @@ import React from 'react';
 import '../../style/asideBlock.css'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Users from './Users';
+import Users from './UsersList';
 import Header from '../Header';
 import settingsIcon from '../../assets/settings-icon.png'
 import Polylogue from './Polylogue';
