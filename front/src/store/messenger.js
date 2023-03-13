@@ -4,7 +4,7 @@ const initialState = {
     usersList: [],
     dialogues: [],
     currentDialog: {},
-    selectedUserId: -1
+    selectedUserId: null
 }
 
 const messenger = createSlice({

@@ -14,7 +14,7 @@ const AsideSettings = () => {
         <aside>
             <Header>
                 <Link
-                    to='/'
+                    to='/messenger'
                     className='link-back-from-settings'
                     onClick={() => dispatch(setSettingPath(''))}
                 >

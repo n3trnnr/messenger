@@ -37,8 +37,8 @@
             ]
         },
         {
-            "userId": "1",
-            "dialogueId": "1",
+            "userId": 1,
+            "dialogueId": 1,
             "messages": [
                 {
                     "text": "Hello!",
@@ -68,8 +68,8 @@
             ]
         },
         {
-            "userId": "2",
-            "dialogueId": "2",
+            "userId": 2,
+            "dialogueId": 2,
             "messages": [
                 {
                     "text": "Are you free tonight?",
@@ -94,8 +94,8 @@
             ]
         },
         {
-            "userId": "3",
-            "dialogueId": "3",
+            "userId": 3,
+            "dialogueId": 3,
             "messages": [
                 {
                     "text": "Are you here?",

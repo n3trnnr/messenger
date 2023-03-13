@@ -7,7 +7,6 @@ import avatar from '../assets/avatar.png'
 import usersData from '../mocks/usersData.json'
 import dialoguesData from '../mocks/dialogues.json'
 import Slider from '../components/messenger/Slider'
-import '../style/asideUsersData.css'
 
 const Messanger = () => {
 
@@ -23,28 +22,29 @@ const Messanger = () => {
         dispatch(setDialogues(dialoguesData.dialogues))
     }
 
-    const getData = async () => {
-        try {
-            const resolve = await fetch('https://mysafeinfo.com/api/data?list=englishmonarchs&format=json')
-            const data = resolve.json()
-            // console.log(data);
-            // throw 'new error'
-        }
-        catch (e) {
-            console.log(e);
-        }
-    }
+    // const getData = async () => {
+    //     try {
+    //         const resolve = await fetch('https://mysafeinfo.com/api/data?list=englishmonarchs&format=json')
+    //         const data = resolve.json()
+    //         // console.log(data);
+    //         // throw 'new error'
+    //     }
+    //     catch (e) {
+    //         console.log(e);
+    //     }
+    // }
 
-    const addNewUser = () => {
-        const newUser = {
-            id: `id ${usersData.users.length}`,
-            img: avatar,
-            name: 'new user',
-            incomingMessages: 3
-        }
-        dispatch(addUser(newUser))
-    }
+    // const addNewUser = () => {
+    //     const newUser = {
+    //         id: `id ${usersData.users.length}`,
+    //         img: avatar,
+    //         name: 'new user',
+    //         incomingMessages: 3
+    //     }
+    //     dispatch(addUser(newUser))
+    // }
 
+    const user = useSelector(({ settings }) => settings.userData)
     const usersList = useSelector(({ messenger }) => messenger.usersList)
     const selectedUserId = useSelector(({ messenger }) => messenger.selectedUserId)
     const [sliderState, setSliderState] = useState(true)
@@ -52,7 +52,7 @@ const Messanger = () => {
     // console.log('sliderState: ', sliderState, 'seceltedUserId: ', selectedUserId, 'userData: ', userData);
 
     useEffect(() => {
-        if (~selectedUserId) {
+        if (selectedUserId !== null) {
             setUserData(getUserDataById())
             setSliderState(false)
         } else {
@@ -62,15 +62,22 @@ const Messanger = () => {
     }, [selectedUserId])
 
     const getUserDataById = () => {
-        for (let user of usersList) {
-            if (user.id === selectedUserId) {
-                return user
+        if (Array.isArray(selectedUserId)) {
+            const filteredPolylogueUsers = [user]
+            selectedUserId.map((selectedId) => {
+                const filteredUsersById = usersList.filter(({ id }) => id === selectedId)
+                filteredPolylogueUsers.push(...filteredUsersById)
+            })
+            return filteredPolylogueUsers
+        } else {
+            for (let user of usersList) {
+                if (user.id === selectedUserId) {
+                    return [user]
+                }
             }
         }
         return false
     }
-
-    // console.log('selectedUserId', selectedUserId);
 
     return (
         <>
@@ -81,12 +88,14 @@ const Messanger = () => {
                     isHidden={sliderState}
                     setHidden={setSliderState}
                 >
-                    {userData && <div className='aside-user-wrapper'>
-                        <div className='aside-user-name'>{userData.name}</div>
-                        <img className='aside-user-avatar' src={userData.avatar} alt="avatar" />
-                        <div className='aside-user-phone-number'>{userData.phoneNumber}</div>
-                        <div className='aside-user-bio'>{userData.bio}</div>
-                    </div>}
+                    {userData && userData.map((user, id) => {
+                        return <div className='aside-user-wrapper' key={`asideUser_${id}`}>
+                            <div className='aside-user-name'>{user.name}</div>
+                            <img className='aside-user-avatar' src={user.avatar} alt="avatar" />
+                            <div className='aside-user-phone-number'>{user.phoneNumber}</div>
+                            <div className='aside-user-bio'>{user.bio}</div>
+                        </div>
+                    })}
                 </Slider>
             </>
             {/* <div onClick={() => addNewUser()}>ADD USER</div> */}

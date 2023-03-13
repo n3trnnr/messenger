@@ -23,18 +23,18 @@ const ChatBlock = () => {
                 }
             }
         }
-        if (messagesData && messagesData.usersId) {
+        if (messagesData.usersId) {
             return messagesData
         }
         return false
     }, [messagesData])
 
-    const getDataAboutPolylogueUsers = () => {
-        if (messagesData && messagesData.usersId) {
+    const getDataAboutPolylogueUsers = useCallback(() => {
+        if (messagesData.usersId) {
             const polylogueUserData = []
             for (let user of usersData) {
                 for (let i of messagesData.usersId) {
-                    if (`${i}` === user.id) {
+                    if (i === user.id) {
                         polylogueUserData.push(user)
                     }
                 }
@@ -42,17 +42,17 @@ const ChatBlock = () => {
             return polylogueUserData
         }
         return false
-    }
+    }, [messagesData])
 
-    // console.log(getDataAboutPolylogueUsers());
+    // console.log('getDataAboutPolylogueUsers: ', getDataAboutPolylogueUsers());
 
     return (
         <div className='chat-wrapper'>
             <ChatHeader usersData={setDialogueHeader()} />
 
             <section className='messages-list'>
-                {Object.keys(messagesData).length !== 0 &&
-                    messagesData.messages.map((message, id) => (
+                {Object.keys(messagesData).length > 0 &&
+                    [...messagesData.messages].reverse().map((message, id) => (
                         <Message
                             key={`message_${id}`}
                             text={message.text}

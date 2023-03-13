@@ -10,18 +10,10 @@ const ChatHeader = ({ usersData }) => {
 
     const dispatch = useDispatch()
 
-    const setPolylogueHeader = () => {
-        if (usersData.usersId) {
-            return true
-        }
-    }
-
-    // console.log(setPolylogueHeader())
-
     return (
         usersData && <header className='header-dialog'>
             <div className="back-btn" onClick={() => dispatch(setDialogueByUserId(-1))}>{'<'}</div>
-            <div onClick={() => dispatch(setSelectedUserId(usersData.id))}>{usersData.name}</div>
+            <div onClick={() => dispatch(setSelectedUserId(usersData.id || usersData.usersId))}>{usersData.name}</div>
             <img className="header-avatar" src={usersData.avatar || usersData.logo || noAvatar} alt="avatar" />
         </header>
     )

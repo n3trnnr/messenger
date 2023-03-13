@@ -5,7 +5,7 @@ import Messenger from '../pages/Messenger'
 const Router = () => {
     return (
         <Routes>
-            <Route path='/' element={<Messenger />} />
+            <Route path='/messenger' element={<Messenger />} />
             <Route path='/settings' element={<Settings />} />
         </Routes>
     )

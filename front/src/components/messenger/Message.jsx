@@ -8,7 +8,7 @@ const Message = ({ text, time, isOutgoing, usersData, userData }) => {
         const setAvatar = !isOutgoing ? usersData.avatar || noAvatar : userData.avatar || noAvatar
 
         if (Array.isArray(usersData) && isOutgoing) {
-            const setPolylogueUserAvatars = usersData.filter(({ id }) => id === `${isOutgoing}`)
+            const setPolylogueUserAvatars = usersData.filter(({ id }) => id === isOutgoing)
             if (setPolylogueUserAvatars.length > 0) {
                 return setPolylogueUserAvatars[0].avatar;
             }

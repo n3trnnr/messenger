@@ -21,9 +21,13 @@ const Slider = ({ isHidden, setHidden, children }) => {
         else if (isHidden && translate < 101) {
             setTimeout(() => {
                 setTranslate(translate + 1)
-                dispatch(setSelectedUserId(-1))
             }, 1)
         }
+
+        if (isHidden && translate === 101) {
+            dispatch(setSelectedUserId(null))
+        }
+
     }, [translate, isHidden])
 
     return (

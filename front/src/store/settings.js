@@ -5,7 +5,8 @@ const initialState = {
         name: 'Julius',
         avatar: 'https://w7.pngwing.com/pngs/980/304/png-transparent-computer-icons-user-profile-avatar-heroes-silhouette-avatar.png',
         mail: 'julius@gmail.com',
-        birthday: '29.05.1992'
+        birthday: '29.05.1992',
+        bio: 'Life is what happens when you are busy making other plans'
     },
     settingPath: ''
 }

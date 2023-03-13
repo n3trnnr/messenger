@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import '../../style/asideBlock.css'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -23,13 +23,22 @@ const AsideBlock = () => {
         return []
     }
 
-    const polylogues = () => {
+    const polylogues = useMemo(() => {
         const polylogue = dialoguesData.filter(({ usersId }) => usersId)
         // const polylogue = dialoguesData.filter((usersId) => usersId)
         // console.log(polylogue);
 
-        return polylogue
-    }
+        return polylogue.map((polylogue, id) => {
+            return (
+                <Polylogue
+                    key={`polylogue_${id}`}
+                    id={polylogue.dialogueId}
+                    name={polylogue.name}
+                    logo={polylogue.logo}
+                />
+            )
+        })
+    }, [dialoguesData])
 
     return (
         <aside className='aside-wrapper'>
@@ -56,14 +65,7 @@ const AsideBlock = () => {
                         />)
                 })}
 
-                {polylogues().map((polylogue, id) => (
-                    <Polylogue
-                        key={`polylogue_${id}`}
-                        id={polylogue.dialogueId}
-                        name={polylogue.name}
-                        logo={polylogue.logo}
-                    />
-                ))}
+                {polylogues}
             </section>
         </aside>
     );
