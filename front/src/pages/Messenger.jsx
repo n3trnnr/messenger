@@ -89,11 +89,11 @@ const Messanger = () => {
                     setHidden={setSliderState}
                 >
                     {userData && userData.map((user, id) => {
-                        return <div className='aside-user-wrapper' key={`asideUser_${id}`}>
-                            <div className='aside-user-name'>{user.name}</div>
-                            <img className='aside-user-avatar' src={user.avatar} alt="avatar" />
-                            <div className='aside-user-phone-number'>{user.phoneNumber}</div>
-                            <div className='aside-user-bio'>{user.bio}</div>
+                        return <div className='slider-user-wrapper' key={`sliderUser_${id}`}>
+                            <div className='slider-user-name'>{user.name}</div>
+                            <img className='slider-user-avatar' src={user.avatar || avatar} alt="avatar" />
+                            <div className='slider-user-phone-number'>{user.phoneNumber}</div>
+                            <div className='slider-user-bio'>{user.bio}</div>
                         </div>
                     })}
                 </Slider>

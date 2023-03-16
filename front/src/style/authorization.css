@@ -1,0 +1,48 @@
+form.authorization-form {
+    position: absolute;
+    top: 275px;
+    left: 375px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    min-height: 160px;
+    /* border: 1px solid rgba(0, 0, 0, .3); */
+    border-radius: 10px;
+}
+
+div.login-input-name {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+div.password-input-name {
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+button.login-btn {
+    width: 169.82px;
+    height: 30px;
+    border: none;
+    margin-top: 10px;
+    background: red;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    transition-duration: 100ms;
+}
+
+button.login-btn:hover {
+    background: rgb(0, 255, 8);
+    color: rgb(0, 0, 0);
+    box-shadow: 1px .5px 2px black;
+}
+
+/* form.authorization-form:hover button.login-btn {
+    background: rgb(243, 243, 243);
+    color: rgb(0, 0, 0);
+    box-shadow: 1px .5px 2px black;
+} */

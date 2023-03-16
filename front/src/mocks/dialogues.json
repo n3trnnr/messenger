@@ -5,32 +5,32 @@
                 1,
                 3
             ],
-            "dialogueId": "10",
-            "name": "polylogue name",
+            "dialogueId": 10,
+            "name": "Polylogue",
             "logo": "https://w7.pngwing.com/pngs/145/451/png-transparent-computer-icons-user-profile-avatar.png",
             "messages": [
                 {
-                    "text": "Some text!",
+                    "text": "Dear friends, let me introduce Yuri Shuvalov, a student of our Academy!",
                     "time": "22-22",
                     "userId": 1
                 },
                 {
-                    "text": "Some text!",
+                    "text": "Why, Victor, sorry for interrupting you but almost all of us know Yura! We study together.!",
                     "time": "22-22",
                     "isOutgoing": true
                 },
                 {
-                    "text": "Some text!",
+                    "text": "What a surprise! Congratulations! We’re glad to hear it!!",
                     "time": "22-22",
                     "userId": 3
                 },
                 {
-                    "text": "Some text!",
+                    "text": "Thank you, friends.!",
                     "time": "22-22",
                     "userId": 1
                 },
                 {
-                    "text": "Some text!",
+                    "text": "Yuri, for what musical compositions have you got the First Prize?!",
                     "time": "22-22",
                     "isOutgoing": true
                 }

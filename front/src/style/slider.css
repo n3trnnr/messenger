@@ -16,31 +16,31 @@ div.overflow {
     backdrop-filter: blur(0.5px);
 }
 
-div.aside-user-wrapper {
+div.slider-user-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-div.aside-user-wrapper:hover {
+div.slider-user-wrapper:hover {
     background: rgba(225, 225, 225, 0.5);
 }
 
-img.aside-user-avatar {
+img.slider-user-avatar {
     width: 80px;
     height: 80px;
     border-radius: 50px;
 }
 
-div.aside-user-name {
+div.slider-user-name {
     margin: 10px 0 10px 0;
 }
 
-div.aside-user-phone-number {
+div.slider-user-phone-number {
     margin: 10px 0 10px;
 }
 
-div.aside-user-bio {
+div.slider-user-bio {
     margin: 0 10px 10px 10px;
 }

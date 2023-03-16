@@ -18,18 +18,18 @@ div.aside-user-wrapper {
     align-items: center;
 }
 
-img.user-avatar {
+img.aside-block-user-avatar {
     width: 60px;
     height: 60px;
     border-radius: 50px;
     margin-left: 5px;
 }
 
-div.user-name {
+div.aside-block-user-name {
     margin-left: 15px;
 }
 
-div.num-of-messages {
+div.aside-block-num-of-messages {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -40,7 +40,24 @@ div.num-of-messages {
     text-align: center;
 }
 
-div.incoming-message-wrapper {
+div.aside-block-incoming-message-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: baseline;
+    overflow: hidden;
+}
+
+div.aside-block-incoming-message {
+    margin-top: 5px;
+    width: 150px;
+    height: 20px;
+    color: dimgray;
+}
+
+div.aside-block-message-time {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: small;
+    color: dimgray;
 }

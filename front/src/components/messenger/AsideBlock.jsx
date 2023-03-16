@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import '../../style/asideBlock.css'
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Users from './UsersList';
+import UsersList from './UsersList';
 import Header from '../Header';
 import settingsIcon from '../../assets/settings-icon.png'
 import Polylogue from './Polylogue';
@@ -25,16 +25,16 @@ const AsideBlock = () => {
 
     const polylogues = useMemo(() => {
         const polylogue = dialoguesData.filter(({ usersId }) => usersId)
-        // const polylogue = dialoguesData.filter((usersId) => usersId)
-        // console.log(polylogue);
-
         return polylogue.map((polylogue, id) => {
+            const lastMessage = [...polylogue.messages].reverse()
             return (
                 <Polylogue
                     key={`polylogue_${id}`}
                     id={polylogue.dialogueId}
                     name={polylogue.name}
                     logo={polylogue.logo}
+                    text={lastMessage[0].text || ''}
+                    time={lastMessage[0].time || ''}
                 />
             )
         })
@@ -53,7 +53,7 @@ const AsideBlock = () => {
                     const lastMessage = getMessagesFromDialogues(user.id)
                     // console.log('lastMessage: ', lastMessage)
                     return (
-                        <Users
+                        <UsersList
                             key={`user_${id}`}
                             id={user.id}
                             name={user.name}

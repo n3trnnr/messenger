@@ -10,12 +10,12 @@ const UsersList = ({ id, name, avatar, numOfMessages, text, time, isOutgoing }) 
 
     return (
         <div className='user-wrapper' onClick={() => dispatch(setDialogueByUserId(id))}>
-            <img className='user-avatar' src={avatar || noAvatar} alt="user_avatar" />
-            <div className='user-name'>{name}</div>
-            {/* <div className={numOfMessages === 0 ? 'no-messages' : 'num-of-messages'}>{numOfMessages}</div> */}
-            <div className='incoming-message-wrapper'>
-                <div className='incoming-message'>{isOutgoing ? '' : text}</div>
-                <div className='message-time'>{isOutgoing ? '' : time}</div>
+            <img className='aside-block-user-avatar' src={avatar || noAvatar} alt="user_avatar" />
+            {/* <div className={numOfMessages === 0 ? 'no-messages' : 'aside-block-num-of-messages'}>{numOfMessages}</div> */}
+            <div className='aside-block-incoming-message-wrapper'>
+                <div className='aside-block-user-name'>{name}</div>
+                <div className='aside-block-incoming-message'>{text}</div>
+                <div className='aside-block-message-time'>{time}</div>
             </div>
 
         </div>
