@@ -1,7 +1,7 @@
 import ChatBlock from '../components/messenger/ChatBlock';
 import AsideBlock from '../components/messenger/AsideBlock';
 import { useDispatch, useSelector } from 'react-redux';
-import { setUsers, addUser, setDialogues } from '../store/messenger';
+import { setUsers, setDialogues } from '../store/messenger';
 import { useState, useEffect } from 'react';
 import avatar from '../assets/avatar.png'
 import usersData from '../mocks/usersData.json'
@@ -11,38 +11,57 @@ import Slider from '../components/messenger/Slider'
 const Messanger = () => {
 
     const dispatch = useDispatch()
+    const token = useSelector(({ main }) => main.token)
 
     useEffect(() => {
-        fetchData()
-        // getData()
+        dispatch(setDialogues(dialoguesData.dialogues))
+        dispatch(setUsers(usersData.users))
+        getData()
     }, [])
 
-    const fetchData = () => {
-        dispatch(setUsers(usersData.users))
-        dispatch(setDialogues(dialoguesData.dialogues))
+    const getData = async () => {
+        try {
+            const rawUsersData = await fetch('http://localhost:8888/users', {
+                method: 'POST',
+                headers: {
+                    'Authorization': token.token
+                },
+                body: JSON.stringify({
+                    token
+                })
+            })
+
+            const usersData = await rawUsersData.json()
+            console.log('usersData: ', usersData);
+            // dispatch(setUsers(usersData.users))
+        }
+        catch (error) {
+            console.log(error);
+        }
+
     }
 
-    // const getData = async () => {
-    //     try {
-    //         const resolve = await fetch('https://mysafeinfo.com/api/data?list=englishmonarchs&format=json')
-    //         const data = resolve.json()
-    //         // console.log(data);
-    //         // throw 'new error'
-    //     }
-    //     catch (e) {
-    //         console.log(e);
-    //     }
-    // }
+    // const dialogues = async () => {
 
-    // const addNewUser = () => {
-    //     const newUser = {
-    //         id: `id ${usersData.users.length}`,
-    //         img: avatar,
-    //         name: 'new user',
-    //         incomingMessages: 3
-    //     }
-    //     dispatch(addUser(newUser))
+    //     const rawData = await fetch('http://localhost:8888/dialogues', {
+    //         method: 'GET'
+    //     })
+    //     const data = await rawData.json()
+    //     return data.dialogues
     // }
+    // console.log('dialogues', dialogues());
+
+    // const promise = new Promise((resolve, reject) => {
+    //     resolve(fetch('http://localhost:8888/users', {
+    //         method: 'GET'
+    //     }))
+
+    //     reject('error')
+    // })
+
+    // const usrsData = promise.then((data) => data.json()).then((data) => data.users)
+    // const error = promise.catch((value) => console.log(value))
+    // console.log('usrsData', usrsData, 'error', error);
 
     const user = useSelector(({ settings }) => settings.userData)
     const usersList = useSelector(({ messenger }) => messenger.usersList)
@@ -98,7 +117,6 @@ const Messanger = () => {
                     })}
                 </Slider>
             </>
-            {/* <div onClick={() => addNewUser()}>ADD USER</div> */}
         </>
     );
 }

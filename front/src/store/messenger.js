@@ -15,9 +15,6 @@ const messenger = createSlice({
             state.usersList = users
         },
 
-        addUser: (state, { payload: user }) => {
-            state.usersList.push(user)
-        },
         setDialogues: (state, { payload: dialogues }) => {
             state.dialogues = dialogues
         },

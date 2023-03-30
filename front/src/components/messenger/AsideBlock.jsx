@@ -11,7 +11,9 @@ const AsideBlock = () => {
 
     const usersData = useSelector((state) => state.messenger.usersList)
     const dialoguesData = useSelector(({ messenger }) => messenger.dialogues)
+    // console.log('usersData: ', usersData)
     // console.log('dialoguesData: ', dialoguesData)
+
 
     const getMessagesFromDialogues = (userId) => {
         for (let dialogue of dialoguesData) {
